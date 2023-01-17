@@ -1,0 +1,6 @@
+spring:
+  http:
+    encoding: true
+  profiles:
+    active: @profiles.active@
+

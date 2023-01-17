@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.walsin.coil.domain.mybatis.mapper.orp.ORPP029Mapper">
+    <select id="getAllFromXml" resultType="com.walsin.coil.domain.entity.orp.ORPP029">
+        select * from tborpm029 where PLANT_CODE='TC'
+    </select>
+</mapper>

@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /coil
+logging:
+  config: classpath:logback-spring.xml
+
+spring:
+  datasource:
+    dynamic:
+      primary: mysql  #设置默认的数据源
+      strict: false   #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        mysql:
+          url: jdbc:mysql://ys-mysqldbt1.walsin.corp:3306/ysppsdbt1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+          username: pps
+          password: ppsDEV13579
+          driver-class-name: com.mysql.cj.jdbc.Driver  # 3.2.0开始支持SPI可省略此配置
+        oracle:
+          url: jdbc:oracle:thin:@10.106.2.7:1521:YSDBT1
+          username: PRP
+          password: PRPMGR
+          driver-class-name: oracle.jdbc.driver.OracleDriver
+        druid:
+          max-active: 50
+          max-wait: 10000
+          min-idle: 3
+          initial-size: 5
+        #......省略
+        #以上会配置一个默认库master，一个组slave下有两个子库slave_1
+
+
+mybatis-plus:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/xml/*.xml,classpath:mybatis/xml/*/*.xml
+  type-aliases-package: com.walsin.coil.domain.entity
